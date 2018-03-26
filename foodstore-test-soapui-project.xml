@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="226e9b52-8fa6-4e77-b7e6-160b6f90bb38" activeEnvironment="Default" name="foodstore-test" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="0652d8e6-6059-4d84-b86e-0751185f83bd" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost:8080" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://localhost:8080</con:endpoint></con:endpoints><con:resource name="consultar" path="/foodstore-app/pedido/calculaValorItem" id="23a1eb1d-e5da-4808-b343-2bc12cdebd35"><con:settings/><con:parameters/><con:method name="Sanduiche 1" id="09abbc66-e951-4224-90f6-6f5e7ea9e2e2" method="POST"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="http://localhost/foodstore-app/sanduiche/1">ns:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>405</con:status><con:params/><con:element xmlns:ns="http://localhost/foodstore-app/sanduiche/1">ns:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:request name="Request 1" id="1906ffaa-c790-4e14-a881-a7efbfa78394" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "codigoSanduiche": 1,
+  "nomeSanduiche": "X-BACON",
+  "descricaoSanduiche": "Hambúrguer de carne, queijo e bacon.",
+  "ingredientes": [
+    {
+      "codigoIngrediente": 1,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "HAMBURGUER DE CARNE",
+      "valorIngrediente": 3
+    },
+    {
+      "codigoIngrediente": 5,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "QUEIJO",
+      "valorIngrediente": 1.5
+    },
+    {
+      "codigoIngrediente": 3,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "BACON",
+      "valorIngrediente": 2
+    }
+  ]
+}</con:request><con:originalUri>http://localhost/foodstore-app/sanduiche/1</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="consultar-sanduiche" path="/foodstore-app/sanduiche/1" id="23a1eb1d-e5da-4808-b343-2bc12cdebd35"><con:settings/><con:parameters/><con:method name="Sanduiche 1" id="09abbc66-e951-4224-90f6-6f5e7ea9e2e2" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="http://localhost/foodstore-app/sanduiche/1">ns:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>405</con:status><con:params/><con:element xmlns:ns="http://localhost/foodstore-app/sanduiche/1">ns:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:request name="Request 1" id="1906ffaa-c790-4e14-a881-a7efbfa78394" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "codigoSanduiche": 1,
+  "nomeSanduiche": "X-BACON",
+  "descricaoSanduiche": "Hambúrguer de carne, queijo e bacon.",
+  "ingredientes": [
+    {
+      "codigoIngrediente": 1,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "HAMBURGUER DE CARNE",
+      "valorIngrediente": 3
+    },
+    {
+      "codigoIngrediente": 5,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "QUEIJO",
+      "valorIngrediente": 1.5
+    },
+    {
+      "codigoIngrediente": 3,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "BACON",
+      "valorIngrediente": 2
+    }
+  ]
+}</con:request><con:originalUri>http://localhost/foodstore-app/sanduiche/1</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="consultar-ingrediente" path="/foodstore-app/ingrediente/ingredientes" id="23a1eb1d-e5da-4808-b343-2bc12cdebd35"><con:settings/><con:parameters/><con:method name="Sanduiche 1" id="09abbc66-e951-4224-90f6-6f5e7ea9e2e2" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="http://localhost/foodstore-app/sanduiche/1">ns:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>405 404</con:status><con:params/><con:element xmlns:ns="http://localhost/foodstore-app/sanduiche/1">ns:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:request name="Request 1" id="1906ffaa-c790-4e14-a881-a7efbfa78394" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "codigoSanduiche": 1,
+  "nomeSanduiche": "X-BACON",
+  "descricaoSanduiche": "Hambúrguer de carne, queijo e bacon.",
+  "ingredientes": [
+    {
+      "codigoIngrediente": 1,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "HAMBURGUER DE CARNE",
+      "valorIngrediente": 3
+    },
+    {
+      "codigoIngrediente": 5,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "QUEIJO",
+      "valorIngrediente": 1.5
+    },
+    {
+      "codigoIngrediente": 3,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "BACON",
+      "valorIngrediente": 2
+    }
+  ]
+}</con:request><con:originalUri>http://localhost/foodstore-app/sanduiche/1</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="incluir-pedido" path="/foodstore-app/pedido/incluirpedido" id="23a1eb1d-e5da-4808-b343-2bc12cdebd35"><con:settings/><con:parameters/><con:method name="Sanduiche 1" id="09abbc66-e951-4224-90f6-6f5e7ea9e2e2" method="POST"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="http://localhost/foodstore-app/sanduiche/1">ns:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>405 404</con:status><con:params/><con:element xmlns:ns="http://localhost/foodstore-app/sanduiche/1">ns:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>500</con:status><con:params/><con:element xmlns:ns="http://localhost/foodstore-app/sanduiche/1">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" id="1906ffaa-c790-4e14-a881-a7efbfa78394" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+"nomeCliente" : "Daniel Sanches",
+"cpf" : "35087542867",
+"endereco" : "Rua 11 de Agosto, 235 - Campinas",
+"telefone" : "19988400534",
+"valorPedidoSemDesconto" : 6.5,
+"valorPedidoComDesconto" : 6.5,
+"valorPedidoDesconto" : 0.0,
+"sanduiches" : [
+  {
+  "codigoSanduiche": 1,
+  "nomeSanduiche": "X-BACON",
+  "descricaoSanduiche": "Hambúrguer de carne, queijo e bacon.",
+  "valorSanduicheSemDesconto" : 6.5,
+  "valorSanduicheComDesconto" : 6.5,
+  "valorDescontoTotal" : 0.0,
+  "valorDescontoPromoCarne" : 0.0,
+  "valorDescontoPromoQueijo" : 0.0,
+  "valorDescontoPromoLight" : 0.0,
+  "promoCarne" : 0,
+  "promoQueijo" : 0,
+  "promoLight" : 0,
+  "ingredientes": [
+    {
+      "codigoIngrediente": 1,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "HAMBURGUER DE CARNE",
+      "valorIngrediente": 3
+    },
+    {
+      "codigoIngrediente": 5,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "QUEIJO",
+      "valorIngrediente": 1.5
+    },
+    {
+      "codigoIngrediente": 3,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "BACON",
+      "valorIngrediente": 2
+    }
+  ]
+}
+]
+}</con:request><con:originalUri>http://localhost/foodstore-app/sanduiche/1</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="consultar-pedido" path="/foodstore-app/pedido/1" id="23a1eb1d-e5da-4808-b343-2bc12cdebd35"><con:settings/><con:parameters/><con:method name="Sanduiche 1" id="09abbc66-e951-4224-90f6-6f5e7ea9e2e2" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="http://localhost/foodstore-app/sanduiche/1">ns:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>405 404</con:status><con:params/><con:element xmlns:ns="http://localhost/foodstore-app/sanduiche/1">ns:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>500</con:status><con:params/><con:element xmlns:ns="http://localhost/foodstore-app/sanduiche/1">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" id="1906ffaa-c790-4e14-a881-a7efbfa78394" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "codigoSanduiche": 1,
+  "nomeSanduiche": "X-BACON",
+  "descricaoSanduiche": "Hambúrguer de carne, queijo e bacon.",
+  "ingredientes": [
+    {
+      "codigoIngrediente": 1,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "HAMBURGUER DE CARNE",
+      "valorIngrediente": 3
+    },
+    {
+      "codigoIngrediente": 5,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "QUEIJO",
+      "valorIngrediente": 1.5
+    },
+    {
+      "codigoIngrediente": 3,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "BACON",
+      "valorIngrediente": 2
+    }
+  ]
+}</con:request><con:originalUri>http://localhost/foodstore-app/sanduiche/1</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="atualizar-ingrediente" path="/foodstore-app/ingrediente/atualizar" id="23a1eb1d-e5da-4808-b343-2bc12cdebd35"><con:settings/><con:parameters/><con:method name="Sanduiche 1" id="09abbc66-e951-4224-90f6-6f5e7ea9e2e2" method="POST"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="http://localhost/foodstore-app/sanduiche/1">ns:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>405 404</con:status><con:params/><con:element xmlns:ns="http://localhost/foodstore-app/sanduiche/1">ns:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>500</con:status><con:params/><con:element xmlns:ns="http://localhost/foodstore-app/sanduiche/1">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" id="1906ffaa-c790-4e14-a881-a7efbfa78394" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>    {
+      "codigoIngrediente": 3,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "BACON",
+      "valorIngrediente": 2.0
+    }</con:request><con:originalUri>http://localhost/foodstore-app/sanduiche/1</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="consulta-ingrediente-codigo" path="/foodstore-app/ingrediente/3" id="23a1eb1d-e5da-4808-b343-2bc12cdebd35"><con:settings/><con:parameters/><con:method name="Sanduiche 1" id="09abbc66-e951-4224-90f6-6f5e7ea9e2e2" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="http://localhost/foodstore-app/sanduiche/1">ns:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>405 404</con:status><con:params/><con:element xmlns:ns="http://localhost/foodstore-app/sanduiche/1">ns:Fault</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>500</con:status><con:params/><con:element xmlns:ns="http://localhost/foodstore-app/sanduiche/1">ns:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" id="1906ffaa-c790-4e14-a881-a7efbfa78394" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "codigoSanduiche": 1,
+  "nomeSanduiche": "X-BACON",
+  "descricaoSanduiche": "Hambúrguer de carne, queijo e bacon.",
+  "ingredientes": [
+    {
+      "codigoIngrediente": 1,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "HAMBURGUER DE CARNE",
+      "valorIngrediente": 3
+    },
+    {
+      "codigoIngrediente": 5,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "QUEIJO",
+      "valorIngrediente": 1.5
+    },
+    {
+      "codigoIngrediente": 3,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "BACON",
+      "valorIngrediente": 2
+    }
+  ]
+}</con:request><con:originalUri>http://localhost/foodstore-app/sanduiche/1</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite id="119317bc-1fe2-4481-81bf-b41c725e48fc" name="TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="ee43beca-1942-46c4-9264-cc35a11056b5" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="calculo-sanduiche-pedido" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="calculo-sanduiche-pedido" id="54971deb-01e0-4aa9-9fdb-10e2aadf41ee"><con:settings/><con:config service="http://localhost:8080" resourcePath="/foodstore-app/pedido/calculaValorItem" methodName="Sanduiche 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="calculo-sanduiche-pedido" id="1906ffaa-c790-4e14-a881-a7efbfa78394" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "codigoSanduiche": 1,
+  "nomeSanduiche": "X-BACON",
+  "descricaoSanduiche": "Hambúrguer de carne, queijo e bacon.",
+  "ingredientes": [
+    {
+      "codigoIngrediente": 1,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "HAMBURGUER DE CARNE",
+      "valorIngrediente": 3
+    },
+    {
+      "codigoIngrediente": 5,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "QUEIJO",
+      "valorIngrediente": 1.5
+    },
+    {
+      "codigoIngrediente": 3,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "BACON",
+      "valorIngrediente": 2
+    }
+  ]
+}</con:request><con:originalUri>http://localhost/foodstore-app/sanduiche/1</con:originalUri><con:assertion type="JsonPath Existence Match" id="9ebfe432-0534-4e08-a8ea-3fec5814465d" name="JsonPath Existence Match"><con:configuration><path>$.valorSanduicheSemDesconto</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="c5dd115a-b5ed-4f9a-80f2-c0fbc2e9e0e4"><con:configuration/></con:assertion><con:assertion type="XPath Match" id="2cc19d88-0660-43ac-b0f1-63adbb6edd3e" name="XPath Match"><con:configuration><path>//valorSemDesconto</path><content/><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Existence Match" id="6966f462-15e2-4a42-80f5-4eb2bc4c77cb"><con:configuration/></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="a9f982cb-074d-4643-9e7f-2b7726a3f7a7" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="consultar-pedido-id" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="consultar-pedido-id" id="4d29a739-6dff-4309-907f-bdd610ac3ab3"><con:settings/><con:config service="http://localhost:8080" resourcePath="/foodstore-app/pedido/1" methodName="Sanduiche 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="consultar-pedido-id" id="1906ffaa-c790-4e14-a881-a7efbfa78394" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "codigoSanduiche": 1,
+  "nomeSanduiche": "X-BACON",
+  "descricaoSanduiche": "Hambúrguer de carne, queijo e bacon.",
+  "ingredientes": [
+    {
+      "codigoIngrediente": 1,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "HAMBURGUER DE CARNE",
+      "valorIngrediente": 3
+    },
+    {
+      "codigoIngrediente": 5,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "QUEIJO",
+      "valorIngrediente": 1.5
+    },
+    {
+      "codigoIngrediente": 3,
+      "quantidadeIngrediente": 1,
+      "nomeIngrediente": "BACON",
+      "valorIngrediente": 2
+    }
+  ]
+}</con:request><con:originalUri>http://localhost/foodstore-app/sanduiche/1</con:originalUri><con:assertion type="Simple Contains" id="a5ed4a15-89be-48d1-a36d-fc50da8426ce" name="Contains"><con:configuration><token>"19988400534"</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

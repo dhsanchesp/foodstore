@@ -1,0 +1,58 @@
+{
+  "nomeCliente": "Daniel Sanches",
+  "cpf": "35087542867",
+  "endereco": "Rua 11 de Agosto, 235 - Campinas",
+  "telefone": "19988400534",
+  "sanduiches": [
+    {
+      "codigoSanduiche": 1,
+      "nomeSanduiche": "X-BACON",
+      "descricaoSanduiche": "Hambúrguer de carne, queijo e bacon.",
+      "ingredientes": [
+        {
+          "codigoIngrediente": 1,
+          "quantidadeIngrediente": 3,
+          "nomeIngrediente": "HAMBURGUER DE CARNE",
+          "valorIngrediente": 3
+        },
+        {
+          "codigoIngrediente": 5,
+          "quantidadeIngrediente": 3,
+          "nomeIngrediente": "QUEIJO",
+          "valorIngrediente": 1.5
+        },
+        {
+          "codigoIngrediente": 3,
+          "quantidadeIngrediente": 1,
+          "nomeIngrediente": "BACON",
+          "valorIngrediente": 2
+        }
+      ]
+    },
+    {
+      "codigoSanduiche": 2,
+      "nomeSanduiche": "X-BURGER",
+      "descricaoSanduiche": "Hambúrguer de carne e queijo.",
+      "ingredientes": [
+        {
+          "codigoIngrediente": 1,
+          "quantidadeIngrediente": 3,
+          "nomeIngrediente": "HAMBURGUER DE CARNE",
+          "valorIngrediente": 3
+        },
+        {
+          "codigoIngrediente": 5,
+          "quantidadeIngrediente": 3,
+          "nomeIngrediente": "QUEIJO",
+          "valorIngrediente": 1.5
+        },
+        {
+          "codigoIngrediente": 2,
+          "quantidadeIngrediente": 1,
+          "nomeIngrediente": "ALFACE",
+          "valorIngrediente": 0.4
+        }
+      ]
+    }
+  ]
+}

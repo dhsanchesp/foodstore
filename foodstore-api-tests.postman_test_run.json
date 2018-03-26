@@ -1,0 +1,1385 @@
+{
+	"id": "54f5c0f9-e08a-7cb0-7ea8-f4bc66cf9e0c",
+	"name": "foodstore-api-tests",
+	"allTests": [],
+	"timestamp": 1522082526362,
+	"collection_id": "27109435-3829-e73c-5fcc-333ea88226e7",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "0",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "27109435-3829-e73c-5fcc-333ea88226e7",
+		"name": "foodstore-api-tests",
+		"description": "Suite de testes Rest para a API foodstore",
+		"order": [
+			"69e5f890-0520-213d-6671-ef71608694dd",
+			"0a14bb2d-63fc-077d-d768-5f3b6843558d",
+			"4375c454-7013-efd8-9f10-07e82eea33c6",
+			"d97c50f6-d268-d334-777a-a0d0281e9693",
+			"8c35bada-e5f2-ef8b-b439-8f601066391d",
+			"37895283-f054-c0be-7d4c-a4cc48201a9b"
+		],
+		"folders": [],
+		"folders_order": [],
+		"requests": [
+			{
+				"id": "0a14bb2d-63fc-077d-d768-5f3b6843558d",
+				"headers": "",
+				"headerData": [],
+				"url": "http://localhost:8080/foodstore-app/sanduiche/1",
+				"queryParams": [],
+				"preRequestScript": null,
+				"pathVariables": {},
+				"pathVariableData": [],
+				"method": "GET",
+				"data": null,
+				"dataMode": "params",
+				"tests": "tests[\"Sanduiche: X-BACON\"] = responseBody.has(\"X-BACON\");\ntests[\"Valor: 6.5\"] = responseBody.has(6.5);\n\ntests[\"Ingrediente: Hamburguer\"] = responseBody.has(\"HAMBURGUER DE CARNE\");\ntests[\"Ingrediente: Bacon\"] = responseBody.has(\"BACON\");\ntests[\"Ingrediente: Queijo\"] = responseBody.has(\"QUEIJO\");",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"time": 1522081902629,
+				"name": "consulta-sanduiche-x-bacon",
+				"description": "consulta um sanduiche por id",
+				"collectionId": "27109435-3829-e73c-5fcc-333ea88226e7",
+				"responses": []
+			},
+			{
+				"id": "37895283-f054-c0be-7d4c-a4cc48201a9b",
+				"headers": "",
+				"headerData": [],
+				"url": "http://localhost:8080/foodstore-app/sanduiche/sanduiches",
+				"queryParams": [],
+				"pathVariables": {},
+				"pathVariableData": [],
+				"preRequestScript": null,
+				"method": "GET",
+				"collectionId": "27109435-3829-e73c-5fcc-333ea88226e7",
+				"data": null,
+				"dataMode": "params",
+				"name": "busca-todos-sanduiches",
+				"description": "busca a lista com todos os sanduiches cadastrados na base de dados",
+				"descriptionFormat": "html",
+				"time": 1522082489369,
+				"version": 2,
+				"responses": [],
+				"tests": "var jsonData = JSON.parse(responseBody);\n\n//X-BACON\ntests[\"X-BACON\"] = jsonData[0].nomeSanduiche === \"X-BACON\";\ntests[\"X-BACON - Ingrediente 1\"] = jsonData[0].ingredientes[0].nomeIngrediente === \"HAMBURGUER DE CARNE\";\ntests[\"X-BACON - Ingrediente 2\"] = jsonData[0].ingredientes[1].nomeIngrediente === \"BACON\";\ntests[\"X-BACON - Ingrediente 3\"] = jsonData[0].ingredientes[2].nomeIngrediente === \"QUEIJO\";\n\n//X-BURGER\ntests[\"X-BURGER\"] = jsonData[1].nomeSanduiche === \"X-BURGER\";\ntests[\"X-BURGER - Ingrediente 1\"] = jsonData[1].ingredientes[0].nomeIngrediente === \"HAMBURGUER DE CARNE\";\ntests[\"X-BURGER - Ingrediente 2\"] = jsonData[1].ingredientes[1].nomeIngrediente === \"QUEIJO\";\n\n//X-EGG\ntests[\"X-EGG\"] = jsonData[2].nomeSanduiche === \"X-EGG\";\ntests[\"X-EGG - Ingrediente 1\"] = jsonData[2].ingredientes[0].nomeIngrediente === \"HAMBURGUER DE CARNE\";\ntests[\"X-EGG - Ingrediente 2\"] = jsonData[2].ingredientes[1].nomeIngrediente === \"OVO\";\ntests[\"X-EGG - Ingrediente 3\"] = jsonData[2].ingredientes[2].nomeIngrediente === \"QUEIJO\";\n\n//X-EGG BACON\ntests[\"X-EGG BACON\"] = jsonData[3].nomeSanduiche === \"X-EGG BACON\";\ntests[\"X-EGG BACON - Ingrediente 1\"] = jsonData[3].ingredientes[0].nomeIngrediente === \"HAMBURGUER DE CARNE\";\ntests[\"X-EGG BACON - Ingrediente 2\"] = jsonData[3].ingredientes[1].nomeIngrediente === \"BACON\";\ntests[\"X-EGG BACON - Ingrediente 3\"] = jsonData[3].ingredientes[2].nomeIngrediente === \"OVO\";\ntests[\"X-EGG BACON - Ingrediente 4\"] = jsonData[3].ingredientes[3].nomeIngrediente === \"QUEIJO\";",
+				"currentHelper": "normal",
+				"helperAttributes": {}
+			},
+			{
+				"id": "4375c454-7013-efd8-9f10-07e82eea33c6",
+				"headers": "Content-Type: application/json\n",
+				"headerData": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"enabled": true
+					}
+				],
+				"url": "http://localhost:8080/foodstore-app/pedido/calculaValorItem",
+				"queryParams": [],
+				"preRequestScript": null,
+				"pathVariables": {},
+				"pathVariableData": [],
+				"method": "POST",
+				"data": "{\n  \"codigoSanduiche\": 1,\n  \"nomeSanduiche\": \"X-BACON\",\n  \"descricaoSanduiche\": \"Hambúrguer de carne, queijo e bacon.\",\n  \"ingredientes\": [\n    {\n      \"codigoIngrediente\": 1,\n      \"quantidadeIngrediente\": 3,\n      \"nomeIngrediente\": \"HAMBURGUER DE CARNE\",\n      \"valorIngrediente\": 3\n    },\n    {\n      \"codigoIngrediente\": 5,\n      \"quantidadeIngrediente\": 1,\n      \"nomeIngrediente\": \"QUEIJO\",\n      \"valorIngrediente\": 1.5\n    },\n    {\n      \"codigoIngrediente\": 3,\n      \"quantidadeIngrediente\": 1,\n      \"nomeIngrediente\": \"BACON\",\n      \"valorIngrediente\": 2\n    }\n  ]\n}",
+				"dataMode": "raw",
+				"tests": "tests[\"Sanduiche: X-BACON\"] = responseBody.has(\"X-BACON\");\ntests[\"Valor Sem Desconto: 12.5\"] = responseBody.has(12.5);\ntests[\"Valor Com Desconto: 9.5\"] = responseBody.has(9.5);\n\ntests[\"Ingrediente: Hamburguer\"] = responseBody.has(\"HAMBURGUER DE CARNE\");\ntests[\"Ingrediente: Bacon\"] = responseBody.has(\"BACON\");\ntests[\"Ingrediente: Queijo\"] = responseBody.has(\"QUEIJO\");\n\n\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Valor sem Desconto\"] = jsonData.valorSanduicheSemDesconto === 12.5;\ntests[\"Valor Com Desconto\"] = jsonData.valorSanduicheComDesconto === 9.5;\ntests[\"Valor Desconto Total\"] = jsonData.valorDescontoTotal === 3;\n\ntests[\"Promo Carne: Ativa\"] = jsonData.promoCarne === 1;\ntests[\"Promo Queijo: Inativa\"] = jsonData.promoQueijo === 0;\ntests[\"Promo Light: Inativa\"] = jsonData.promoLight === 0;",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"time": 1522075047695,
+				"name": "calcula-valor-sanduiche-promo-carne",
+				"description": "calcula o valor de um sanduiche que se enquadra na promo carne",
+				"collectionId": "27109435-3829-e73c-5fcc-333ea88226e7",
+				"responses": []
+			},
+			{
+				"id": "69e5f890-0520-213d-6671-ef71608694dd",
+				"headers": "",
+				"headerData": [],
+				"url": "http://localhost:8080/foodstore-app/sanduiche/8",
+				"queryParams": [],
+				"preRequestScript": null,
+				"pathVariables": {},
+				"pathVariableData": [],
+				"method": "GET",
+				"data": null,
+				"dataMode": "params",
+				"version": 2,
+				"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"Status code is 200\"] = responseCode.code === 404;\n\ntests[\"Error message\"] = responseBody.has(\"/foodstore-app/sanduiche/8\");\ntests[\"Caminho\"] = responseBody.has(\"Not Found\");",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"time": 1522074262504,
+				"name": "sanduiche-nao-encontrado",
+				"description": "",
+				"collectionId": "27109435-3829-e73c-5fcc-333ea88226e7",
+				"responses": []
+			},
+			{
+				"id": "8c35bada-e5f2-ef8b-b439-8f601066391d",
+				"headers": "Content-Type: application/json\n",
+				"headerData": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"enabled": true
+					}
+				],
+				"url": "http://localhost:8080/foodstore-app/pedido/incluirpedido",
+				"queryParams": [],
+				"pathVariables": {},
+				"pathVariableData": [],
+				"preRequestScript": null,
+				"method": "POST",
+				"collectionId": "27109435-3829-e73c-5fcc-333ea88226e7",
+				"data": "{\n  \"nomeCliente\": \"Daniel Sanches\",\n  \"cpf\": \"35087542867\",\n  \"endereco\": \"Rua 11 de Agosto, 235 - Campinas\",\n  \"telefone\": \"19988400534\",\n  \"sanduiches\": [\n    {\n      \"codigoSanduiche\": 1,\n      \"nomeSanduiche\": \"X-BACON\",\n      \"descricaoSanduiche\": \"Hambúrguer de carne, queijo e bacon.\",\n      \"ingredientes\": [\n        {\n          \"codigoIngrediente\": 1,\n          \"quantidadeIngrediente\": 3,\n          \"nomeIngrediente\": \"HAMBURGUER DE CARNE\",\n          \"valorIngrediente\": 3\n        },\n        {\n          \"codigoIngrediente\": 5,\n          \"quantidadeIngrediente\": 3,\n          \"nomeIngrediente\": \"QUEIJO\",\n          \"valorIngrediente\": 1.5\n        },\n        {\n          \"codigoIngrediente\": 3,\n          \"quantidadeIngrediente\": 1,\n          \"nomeIngrediente\": \"BACON\",\n          \"valorIngrediente\": 2\n        }\n      ]\n    },\n    {\n      \"codigoSanduiche\": 2,\n      \"nomeSanduiche\": \"X-BURGER\",\n      \"descricaoSanduiche\": \"Hambúrguer de carne e queijo.\",\n      \"ingredientes\": [\n        {\n          \"codigoIngrediente\": 1,\n          \"quantidadeIngrediente\": 3,\n          \"nomeIngrediente\": \"HAMBURGUER DE CARNE\",\n          \"valorIngrediente\": 3\n        },\n        {\n          \"codigoIngrediente\": 5,\n          \"quantidadeIngrediente\": 3,\n          \"nomeIngrediente\": \"QUEIJO\",\n          \"valorIngrediente\": 1.5\n        },\n        {\n          \"codigoIngrediente\": 2,\n          \"quantidadeIngrediente\": 1,\n          \"nomeIngrediente\": \"ALFACE\",\n          \"valorIngrediente\": 0.4\n        }\n      ]\n    }\n  ]\n}",
+				"dataMode": "raw",
+				"name": "incluir-pedido-com-promocao",
+				"description": "Inclui um pedido com dois sanduiches.\nO primeiro apenas com as promo Carne e Quejjo ativas.\nO segundo com todas as promoções ativas.",
+				"descriptionFormat": "html",
+				"time": 1522081863857,
+				"version": 2,
+				"responses": [],
+				"tests": "var jsonData = JSON.parse(responseBody);\ntests[\"Valor Pedido sem Desconto\"] = jsonData.valorPedidoSemDesconto === 29.40;\ntests[\"Valor Pedido Com Desconto\"] = jsonData.valorPedidoComDesconto === 19.46;\ntests[\"Valor Pedido Desconto Total\"] = jsonData.valorPedidoDesconto === 9.94;\n\n//Primeiro sanduiche - Promo Carne e Promo Queijo\ntests[\"[1] Valor sem Desconto\"] = jsonData.sanduiches[0].valorSanduicheSemDesconto === 15.5;\ntests[\"[1] Valor Com Desconto\"] = jsonData.sanduiches[0].valorSanduicheComDesconto === 11;\ntests[\"[1] Valor Desconto Total\"] = jsonData.sanduiches[0].valorDescontoTotal === 4.5;\ntests[\"[1] Valor Desconto Promo Carne\"] = jsonData.sanduiches[0].valorDescontoPromoCarne === 3;\ntests[\"[1] Valor Desconto Promo Queijo\"] = jsonData.sanduiches[0].valorDescontoPromoQueijo === 1.5;\ntests[\"[1] Valor Desconto Promo Light\"] = jsonData.sanduiches[0].valorDescontoPromoLight === 0,\ntests[\"[1] Promo Carne: Ativa\"] = jsonData.sanduiches[0].promoCarne === 1;\ntests[\"[1] Promo Queijo: Inativa\"] = jsonData.sanduiches[0].promoQueijo === 1;\ntests[\"[1] Promo Light: Inativa\"] = jsonData.sanduiches[0].promoLight === 0;\n\n//Segundo sanduiche - Todas as promo ativas\ntests[\"[2] Valor sem Desconto\"] = jsonData.sanduiches[1].valorSanduicheSemDesconto === 13.9;\ntests[\"[2] Valor Com Desconto\"] = jsonData.sanduiches[1].valorSanduicheComDesconto === 8.46;\ntests[\"[2] Valor Desconto Total\"] = jsonData.sanduiches[1].valorDescontoTotal === 5.44;\ntests[\"[2] Valor Desconto Promo Carne\"] = jsonData.sanduiches[1].valorDescontoPromoCarne === 3;\ntests[\"[2] Valor Desconto Promo Queijo\"] = jsonData.sanduiches[1].valorDescontoPromoQueijo === 1.5;\ntests[\"[2] Valor Desconto Promo Light\"] = jsonData.sanduiches[1].valorDescontoPromoLight === 0.94,\ntests[\"[2] Promo Carne: Ativa\"] = jsonData.sanduiches[1].promoCarne === 1;\ntests[\"[2] Promo Queijo: Inativa\"] = jsonData.sanduiches[1].promoQueijo === 1;\ntests[\"[2] Promo Light: Inativa\"] = jsonData.sanduiches[1].promoLight === 1;",
+				"currentHelper": "normal",
+				"helperAttributes": {}
+			},
+			{
+				"id": "d97c50f6-d268-d334-777a-a0d0281e9693",
+				"headers": "Content-Type: application/json\n",
+				"headerData": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"enabled": true
+					}
+				],
+				"url": "http://localhost:8080/foodstore-app/pedido/incluirpedido",
+				"queryParams": [],
+				"preRequestScript": null,
+				"pathVariables": {},
+				"pathVariableData": [],
+				"method": "POST",
+				"data": "{\n\"nomeCliente\" : \"Daniel Sanches\",\n\"cpf\" : \"35087542867\",\n\"endereco\" : \"Rua 11 de Agosto, 235 - Campinas\",\n\"telefone\" : \"19988400534\",\n\"sanduiches\" : [\n  {\n  \"codigoSanduiche\": 1,\n  \"nomeSanduiche\": \"X-BACON\",\n  \"descricaoSanduiche\": \"Hambúrguer de carne, queijo e bacon.\",\n  \"ingredientes\": [\n    {\n      \"codigoIngrediente\": 1,\n      \"quantidadeIngrediente\": 1,\n      \"nomeIngrediente\": \"HAMBURGUER DE CARNE\",\n      \"valorIngrediente\": 3\n    },\n    {\n      \"codigoIngrediente\": 5,\n      \"quantidadeIngrediente\": 1,\n      \"nomeIngrediente\": \"QUEIJO\",\n      \"valorIngrediente\": 1.5\n    },\n    {\n      \"codigoIngrediente\": 3,\n      \"quantidadeIngrediente\": 1,\n      \"nomeIngrediente\": \"BACON\",\n      \"valorIngrediente\": 2\n    }\n  ]\n}\n]\n}",
+				"dataMode": "raw",
+				"tests": "tests[\"Sanduiche: X-BACON\"] = responseBody.has(\"X-BACON\");\n\ntests[\"Ingrediente: Hamburguer\"] = responseBody.has(\"HAMBURGUER DE CARNE\");\ntests[\"Ingrediente: Bacon\"] = responseBody.has(\"BACON\");\ntests[\"Ingrediente: Queijo\"] = responseBody.has(\"QUEIJO\");\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Valor Pedido sem Desconto\"] = jsonData.valorPedidoSemDesconto === 6.5;\ntests[\"Valor Pedido Com Desconto\"] = jsonData.valorPedidoComDesconto === 6.5;\n\ntests[\"Valor sem Desconto\"] = jsonData.sanduiches[0].valorSanduicheSemDesconto === 6.5;\ntests[\"Valor Com Desconto\"] = jsonData.sanduiches[0].valorSanduicheComDesconto === 6.5;\ntests[\"Valor Desconto Total\"] = jsonData.sanduiches[0].valorDescontoTotal === 0;\n\ntests[\"Promo Carne: Ativa\"] = jsonData.sanduiches[0].promoCarne === 0;\ntests[\"Promo Queijo: Inativa\"] = jsonData.sanduiches[0].promoQueijo === 0;\ntests[\"Promo Light: Inativa\"] = jsonData.sanduiches[0].promoLight === 0;",
+				"currentHelper": "normal",
+				"helperAttributes": {},
+				"time": 1522081088907,
+				"name": "incluir-pedido",
+				"description": "inclui um novo pedido",
+				"collectionId": "27109435-3829-e73c-5fcc-333ea88226e7",
+				"responses": []
+			}
+		],
+		"timestamp": 1522073334647,
+		"synced": false,
+		"syncedFilename": "",
+		"remote_id": 0,
+		"remoteLink": "",
+		"remoteLinkUpdatedAt": null,
+		"public": false,
+		"owner": "3281321",
+		"subscribed": false,
+		"createdAt": 1522073334647,
+		"updatedAt": 1522082489402,
+		"write": true,
+		"published": false,
+		"favorite": false,
+		"permissions": {},
+		"syncedPermissions": {},
+		"sharedWithTeam": false
+	},
+	"folder": null,
+	"environment": null,
+	"globals": [],
+	"results": [
+		{
+			"id": "69e5f890-0520-213d-6671-ef71608694dd",
+			"name": "sanduiche-nao-encontrado",
+			"url": "http://localhost:8080/foodstore-app/sanduiche/8",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Error message": true,
+				"Caminho": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Error message": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Caminho": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Error message": true,
+					"Caminho": true
+				}
+			],
+			"time": 15,
+			"totalRequestTime": 15,
+			"iterationResults": {}
+		},
+		{
+			"id": "0a14bb2d-63fc-077d-d768-5f3b6843558d",
+			"name": "consulta-sanduiche-x-bacon",
+			"url": "http://localhost:8080/foodstore-app/sanduiche/1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Sanduiche: X-BACON": true,
+				"Valor: 6.5": true,
+				"Ingrediente: Hamburguer": true,
+				"Ingrediente: Bacon": true,
+				"Ingrediente: Queijo": true
+			},
+			"testPassFailCounts": {
+				"Sanduiche: X-BACON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor: 6.5": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ingrediente: Hamburguer": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ingrediente: Bacon": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ingrediente: Queijo": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Sanduiche: X-BACON": true,
+					"Valor: 6.5": true,
+					"Ingrediente: Hamburguer": true,
+					"Ingrediente: Bacon": true,
+					"Ingrediente: Queijo": true
+				}
+			],
+			"time": 8,
+			"totalRequestTime": 8,
+			"iterationResults": {}
+		},
+		{
+			"id": "4375c454-7013-efd8-9f10-07e82eea33c6",
+			"name": "calcula-valor-sanduiche-promo-carne",
+			"url": "http://localhost:8080/foodstore-app/pedido/calculaValorItem",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Sanduiche: X-BACON": true,
+				"Valor Sem Desconto: 12.5": true,
+				"Valor Com Desconto: 9.5": true,
+				"Ingrediente: Hamburguer": true,
+				"Ingrediente: Bacon": true,
+				"Ingrediente: Queijo": true,
+				"Valor sem Desconto": true,
+				"Valor Com Desconto": true,
+				"Valor Desconto Total": true,
+				"Promo Carne: Ativa": true,
+				"Promo Queijo: Inativa": true,
+				"Promo Light: Inativa": true
+			},
+			"testPassFailCounts": {
+				"Sanduiche: X-BACON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor Sem Desconto: 12.5": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor Com Desconto: 9.5": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ingrediente: Hamburguer": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ingrediente: Bacon": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ingrediente: Queijo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor sem Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor Com Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor Desconto Total": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Promo Carne: Ativa": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Promo Queijo: Inativa": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Promo Light: Inativa": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Sanduiche: X-BACON": true,
+					"Valor Sem Desconto: 12.5": true,
+					"Valor Com Desconto: 9.5": true,
+					"Ingrediente: Hamburguer": true,
+					"Ingrediente: Bacon": true,
+					"Ingrediente: Queijo": true,
+					"Valor sem Desconto": true,
+					"Valor Com Desconto": true,
+					"Valor Desconto Total": true,
+					"Promo Carne: Ativa": true,
+					"Promo Queijo: Inativa": true,
+					"Promo Light: Inativa": true
+				}
+			],
+			"time": 8,
+			"totalRequestTime": 8,
+			"iterationResults": {}
+		},
+		{
+			"id": "d97c50f6-d268-d334-777a-a0d0281e9693",
+			"name": "incluir-pedido",
+			"url": "http://localhost:8080/foodstore-app/pedido/incluirpedido",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Sanduiche: X-BACON": true,
+				"Ingrediente: Hamburguer": true,
+				"Ingrediente: Bacon": true,
+				"Ingrediente: Queijo": true,
+				"Valor Pedido sem Desconto": true,
+				"Valor Pedido Com Desconto": true,
+				"Valor sem Desconto": true,
+				"Valor Com Desconto": true,
+				"Valor Desconto Total": true,
+				"Promo Carne: Ativa": true,
+				"Promo Queijo: Inativa": true,
+				"Promo Light: Inativa": true
+			},
+			"testPassFailCounts": {
+				"Sanduiche: X-BACON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ingrediente: Hamburguer": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ingrediente: Bacon": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ingrediente: Queijo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor Pedido sem Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor Pedido Com Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor sem Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor Com Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor Desconto Total": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Promo Carne: Ativa": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Promo Queijo: Inativa": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Promo Light: Inativa": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				23
+			],
+			"allTests": [
+				{
+					"Sanduiche: X-BACON": true,
+					"Ingrediente: Hamburguer": true,
+					"Ingrediente: Bacon": true,
+					"Ingrediente: Queijo": true,
+					"Valor Pedido sem Desconto": true,
+					"Valor Pedido Com Desconto": true,
+					"Valor sem Desconto": true,
+					"Valor Com Desconto": true,
+					"Valor Desconto Total": true,
+					"Promo Carne: Ativa": true,
+					"Promo Queijo: Inativa": true,
+					"Promo Light: Inativa": true
+				}
+			],
+			"time": 23,
+			"totalRequestTime": 23,
+			"iterationResults": {}
+		},
+		{
+			"id": "8c35bada-e5f2-ef8b-b439-8f601066391d",
+			"name": "incluir-pedido-com-promocao",
+			"url": "http://localhost:8080/foodstore-app/pedido/incluirpedido",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"Valor Pedido sem Desconto": true,
+				"Valor Pedido Com Desconto": true,
+				"Valor Pedido Desconto Total": true,
+				"[1] Valor sem Desconto": true,
+				"[1] Valor Com Desconto": true,
+				"[1] Valor Desconto Total": true,
+				"[1] Valor Desconto Promo Carne": true,
+				"[1] Valor Desconto Promo Queijo": true,
+				"[1] Valor Desconto Promo Light": true,
+				"[1] Promo Carne: Ativa": true,
+				"[1] Promo Queijo: Inativa": true,
+				"[1] Promo Light: Inativa": true,
+				"[2] Valor sem Desconto": true,
+				"[2] Valor Com Desconto": true,
+				"[2] Valor Desconto Total": true,
+				"[2] Valor Desconto Promo Carne": true,
+				"[2] Valor Desconto Promo Queijo": true,
+				"[2] Valor Desconto Promo Light": true,
+				"[2] Promo Carne: Ativa": true,
+				"[2] Promo Queijo: Inativa": true,
+				"[2] Promo Light: Inativa": true
+			},
+			"testPassFailCounts": {
+				"Valor Pedido sem Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor Pedido Com Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor Pedido Desconto Total": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[1] Valor sem Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[1] Valor Com Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[1] Valor Desconto Total": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[1] Valor Desconto Promo Carne": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[1] Valor Desconto Promo Queijo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[1] Valor Desconto Promo Light": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[1] Promo Carne: Ativa": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[1] Promo Queijo: Inativa": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[1] Promo Light: Inativa": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[2] Valor sem Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[2] Valor Com Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[2] Valor Desconto Total": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[2] Valor Desconto Promo Carne": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[2] Valor Desconto Promo Queijo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[2] Valor Desconto Promo Light": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[2] Promo Carne: Ativa": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[2] Promo Queijo: Inativa": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[2] Promo Light: Inativa": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				23
+			],
+			"allTests": [
+				{
+					"Valor Pedido sem Desconto": true,
+					"Valor Pedido Com Desconto": true,
+					"Valor Pedido Desconto Total": true,
+					"[1] Valor sem Desconto": true,
+					"[1] Valor Com Desconto": true,
+					"[1] Valor Desconto Total": true,
+					"[1] Valor Desconto Promo Carne": true,
+					"[1] Valor Desconto Promo Queijo": true,
+					"[1] Valor Desconto Promo Light": true,
+					"[1] Promo Carne: Ativa": true,
+					"[1] Promo Queijo: Inativa": true,
+					"[1] Promo Light: Inativa": true,
+					"[2] Valor sem Desconto": true,
+					"[2] Valor Com Desconto": true,
+					"[2] Valor Desconto Total": true,
+					"[2] Valor Desconto Promo Carne": true,
+					"[2] Valor Desconto Promo Queijo": true,
+					"[2] Valor Desconto Promo Light": true,
+					"[2] Promo Carne: Ativa": true,
+					"[2] Promo Queijo: Inativa": true,
+					"[2] Promo Light: Inativa": true
+				}
+			],
+			"time": 23,
+			"totalRequestTime": 23,
+			"iterationResults": {}
+		},
+		{
+			"id": "37895283-f054-c0be-7d4c-a4cc48201a9b",
+			"name": "busca-todos-sanduiches",
+			"url": "http://localhost:8080/foodstore-app/sanduiche/sanduiches",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"tests": {
+				"X-BACON": true,
+				"X-BACON - Ingrediente 1": true,
+				"X-BACON - Ingrediente 2": true,
+				"X-BACON - Ingrediente 3": true,
+				"X-BURGER": true,
+				"X-BURGER - Ingrediente 1": true,
+				"X-BURGER - Ingrediente 2": true,
+				"X-EGG": true,
+				"X-EGG - Ingrediente 1": true,
+				"X-EGG - Ingrediente 2": true,
+				"X-EGG - Ingrediente 3": true,
+				"X-EGG BACON": true,
+				"X-EGG BACON - Ingrediente 1": true,
+				"X-EGG BACON - Ingrediente 2": true,
+				"X-EGG BACON - Ingrediente 3": true,
+				"X-EGG BACON - Ingrediente 4": true
+			},
+			"testPassFailCounts": {
+				"X-BACON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-BACON - Ingrediente 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-BACON - Ingrediente 2": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-BACON - Ingrediente 3": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-BURGER": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-BURGER - Ingrediente 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-BURGER - Ingrediente 2": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-EGG": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-EGG - Ingrediente 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-EGG - Ingrediente 2": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-EGG - Ingrediente 3": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-EGG BACON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-EGG BACON - Ingrediente 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-EGG BACON - Ingrediente 2": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-EGG BACON - Ingrediente 3": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-EGG BACON - Ingrediente 4": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"X-BACON": true,
+					"X-BACON - Ingrediente 1": true,
+					"X-BACON - Ingrediente 2": true,
+					"X-BACON - Ingrediente 3": true,
+					"X-BURGER": true,
+					"X-BURGER - Ingrediente 1": true,
+					"X-BURGER - Ingrediente 2": true,
+					"X-EGG": true,
+					"X-EGG - Ingrediente 1": true,
+					"X-EGG - Ingrediente 2": true,
+					"X-EGG - Ingrediente 3": true,
+					"X-EGG BACON": true,
+					"X-EGG BACON - Ingrediente 1": true,
+					"X-EGG BACON - Ingrediente 2": true,
+					"X-EGG BACON - Ingrediente 3": true,
+					"X-EGG BACON - Ingrediente 4": true
+				}
+			],
+			"time": 16,
+			"totalRequestTime": 16,
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 69,
+	"totalFail": 0,
+	"totalTime": 93,
+	"lifecycle": "done",
+	"willStop": false,
+	"requests": [
+		{
+			"name": "sanduiche-nao-encontrado",
+			"id": "69e5f890-0520-213d-6671-ef71608694dd",
+			"url": "http://localhost:8080/foodstore-app/sanduiche/8",
+			"time": 15,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found",
+				"detail": "The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible."
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Error message": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Caminho": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Status code is 200",
+				"Error message",
+				"Caminho"
+			],
+			"gridData": [
+				[
+					true,
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Status code is 200": true,
+				"Error message": true,
+				"Caminho": true
+			}
+		},
+		{
+			"name": "consulta-sanduiche-x-bacon",
+			"id": "0a14bb2d-63fc-077d-d768-5f3b6843558d",
+			"url": "http://localhost:8080/foodstore-app/sanduiche/1",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Sanduiche: X-BACON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor: 6.5": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ingrediente: Hamburguer": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ingrediente: Bacon": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ingrediente: Queijo": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Sanduiche: X-BACON",
+				"Valor: 6.5",
+				"Ingrediente: Hamburguer",
+				"Ingrediente: Bacon",
+				"Ingrediente: Queijo"
+			],
+			"gridData": [
+				[
+					true,
+					true,
+					true,
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Sanduiche: X-BACON": true,
+				"Valor: 6.5": true,
+				"Ingrediente: Hamburguer": true,
+				"Ingrediente: Bacon": true,
+				"Ingrediente: Queijo": true
+			}
+		},
+		{
+			"name": "calcula-valor-sanduiche-promo-carne",
+			"id": "4375c454-7013-efd8-9f10-07e82eea33c6",
+			"url": "http://localhost:8080/foodstore-app/pedido/calculaValorItem",
+			"time": 8,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Sanduiche: X-BACON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor Sem Desconto: 12.5": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor Com Desconto: 9.5": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ingrediente: Hamburguer": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ingrediente: Bacon": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ingrediente: Queijo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor sem Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor Com Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor Desconto Total": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Promo Carne: Ativa": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Promo Queijo: Inativa": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Promo Light: Inativa": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Sanduiche: X-BACON",
+				"Valor Sem Desconto: 12.5",
+				"Valor Com Desconto: 9.5",
+				"Ingrediente: Hamburguer",
+				"Ingrediente: Bacon",
+				"Ingrediente: Queijo",
+				"Valor sem Desconto",
+				"Valor Com Desconto",
+				"Valor Desconto Total",
+				"Promo Carne: Ativa",
+				"Promo Queijo: Inativa",
+				"Promo Light: Inativa"
+			],
+			"gridData": [
+				[
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Sanduiche: X-BACON": true,
+				"Valor Sem Desconto: 12.5": true,
+				"Valor Com Desconto: 9.5": true,
+				"Ingrediente: Hamburguer": true,
+				"Ingrediente: Bacon": true,
+				"Ingrediente: Queijo": true,
+				"Valor sem Desconto": true,
+				"Valor Com Desconto": true,
+				"Valor Desconto Total": true,
+				"Promo Carne: Ativa": true,
+				"Promo Queijo: Inativa": true,
+				"Promo Light: Inativa": true
+			}
+		},
+		{
+			"name": "incluir-pedido",
+			"id": "d97c50f6-d268-d334-777a-a0d0281e9693",
+			"url": "http://localhost:8080/foodstore-app/pedido/incluirpedido",
+			"time": 23,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Sanduiche: X-BACON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ingrediente: Hamburguer": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ingrediente: Bacon": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ingrediente: Queijo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor Pedido sem Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor Pedido Com Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor sem Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor Com Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor Desconto Total": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Promo Carne: Ativa": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Promo Queijo: Inativa": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Promo Light: Inativa": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Sanduiche: X-BACON",
+				"Ingrediente: Hamburguer",
+				"Ingrediente: Bacon",
+				"Ingrediente: Queijo",
+				"Valor Pedido sem Desconto",
+				"Valor Pedido Com Desconto",
+				"Valor sem Desconto",
+				"Valor Com Desconto",
+				"Valor Desconto Total",
+				"Promo Carne: Ativa",
+				"Promo Queijo: Inativa",
+				"Promo Light: Inativa"
+			],
+			"gridData": [
+				[
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Sanduiche: X-BACON": true,
+				"Ingrediente: Hamburguer": true,
+				"Ingrediente: Bacon": true,
+				"Ingrediente: Queijo": true,
+				"Valor Pedido sem Desconto": true,
+				"Valor Pedido Com Desconto": true,
+				"Valor sem Desconto": true,
+				"Valor Com Desconto": true,
+				"Valor Desconto Total": true,
+				"Promo Carne: Ativa": true,
+				"Promo Queijo: Inativa": true,
+				"Promo Light: Inativa": true
+			}
+		},
+		{
+			"name": "incluir-pedido-com-promocao",
+			"id": "8c35bada-e5f2-ef8b-b439-8f601066391d",
+			"url": "http://localhost:8080/foodstore-app/pedido/incluirpedido",
+			"time": 23,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"Valor Pedido sem Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor Pedido Com Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valor Pedido Desconto Total": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[1] Valor sem Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[1] Valor Com Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[1] Valor Desconto Total": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[1] Valor Desconto Promo Carne": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[1] Valor Desconto Promo Queijo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[1] Valor Desconto Promo Light": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[1] Promo Carne: Ativa": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[1] Promo Queijo: Inativa": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[1] Promo Light: Inativa": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[2] Valor sem Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[2] Valor Com Desconto": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[2] Valor Desconto Total": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[2] Valor Desconto Promo Carne": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[2] Valor Desconto Promo Queijo": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[2] Valor Desconto Promo Light": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[2] Promo Carne: Ativa": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[2] Promo Queijo: Inativa": {
+					"pass": 1,
+					"fail": 0
+				},
+				"[2] Promo Light: Inativa": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"Valor Pedido sem Desconto",
+				"Valor Pedido Com Desconto",
+				"Valor Pedido Desconto Total",
+				"[1] Valor sem Desconto",
+				"[1] Valor Com Desconto",
+				"[1] Valor Desconto Total",
+				"[1] Valor Desconto Promo Carne",
+				"[1] Valor Desconto Promo Queijo",
+				"[1] Valor Desconto Promo Light",
+				"[1] Promo Carne: Ativa",
+				"[1] Promo Queijo: Inativa",
+				"[1] Promo Light: Inativa",
+				"[2] Valor sem Desconto",
+				"[2] Valor Com Desconto",
+				"[2] Valor Desconto Total",
+				"[2] Valor Desconto Promo Carne",
+				"[2] Valor Desconto Promo Queijo",
+				"[2] Valor Desconto Promo Light",
+				"[2] Promo Carne: Ativa",
+				"[2] Promo Queijo: Inativa",
+				"[2] Promo Light: Inativa"
+			],
+			"gridData": [
+				[
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true
+				]
+			],
+			"tests": {
+				"Valor Pedido sem Desconto": true,
+				"Valor Pedido Com Desconto": true,
+				"Valor Pedido Desconto Total": true,
+				"[1] Valor sem Desconto": true,
+				"[1] Valor Com Desconto": true,
+				"[1] Valor Desconto Total": true,
+				"[1] Valor Desconto Promo Carne": true,
+				"[1] Valor Desconto Promo Queijo": true,
+				"[1] Valor Desconto Promo Light": true,
+				"[1] Promo Carne: Ativa": true,
+				"[1] Promo Queijo: Inativa": true,
+				"[1] Promo Light: Inativa": true,
+				"[2] Valor sem Desconto": true,
+				"[2] Valor Com Desconto": true,
+				"[2] Valor Desconto Total": true,
+				"[2] Valor Desconto Promo Carne": true,
+				"[2] Valor Desconto Promo Queijo": true,
+				"[2] Valor Desconto Promo Light": true,
+				"[2] Promo Carne: Ativa": true,
+				"[2] Promo Queijo: Inativa": true,
+				"[2] Promo Light: Inativa": true
+			}
+		},
+		{
+			"name": "busca-todos-sanduiches",
+			"id": "37895283-f054-c0be-7d4c-a4cc48201a9b",
+			"url": "http://localhost:8080/foodstore-app/sanduiche/sanduiches",
+			"time": 16,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+			},
+			"testPassFailCounts": {
+				"X-BACON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-BACON - Ingrediente 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-BACON - Ingrediente 2": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-BACON - Ingrediente 3": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-BURGER": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-BURGER - Ingrediente 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-BURGER - Ingrediente 2": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-EGG": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-EGG - Ingrediente 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-EGG - Ingrediente 2": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-EGG - Ingrediente 3": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-EGG BACON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-EGG BACON - Ingrediente 1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-EGG BACON - Ingrediente 2": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-EGG BACON - Ingrediente 3": {
+					"pass": 1,
+					"fail": 0
+				},
+				"X-EGG BACON - Ingrediente 4": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"gridTitles": [
+				"X-BACON",
+				"X-BACON - Ingrediente 1",
+				"X-BACON - Ingrediente 2",
+				"X-BACON - Ingrediente 3",
+				"X-BURGER",
+				"X-BURGER - Ingrediente 1",
+				"X-BURGER - Ingrediente 2",
+				"X-EGG",
+				"X-EGG - Ingrediente 1",
+				"X-EGG - Ingrediente 2",
+				"X-EGG - Ingrediente 3",
+				"X-EGG BACON",
+				"X-EGG BACON - Ingrediente 1",
+				"X-EGG BACON - Ingrediente 2",
+				"X-EGG BACON - Ingrediente 3",
+				"X-EGG BACON - Ingrediente 4"
+			],
+			"gridData": [
+				[
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true,
+					true
+				]
+			],
+			"tests": {
+				"X-BACON": true,
+				"X-BACON - Ingrediente 1": true,
+				"X-BACON - Ingrediente 2": true,
+				"X-BACON - Ingrediente 3": true,
+				"X-BURGER": true,
+				"X-BURGER - Ingrediente 1": true,
+				"X-BURGER - Ingrediente 2": true,
+				"X-EGG": true,
+				"X-EGG - Ingrediente 1": true,
+				"X-EGG - Ingrediente 2": true,
+				"X-EGG - Ingrediente 3": true,
+				"X-EGG BACON": true,
+				"X-EGG BACON - Ingrediente 1": true,
+				"X-EGG BACON - Ingrediente 2": true,
+				"X-EGG BACON - Ingrediente 3": true,
+				"X-EGG BACON - Ingrediente 4": true
+			}
+		}
+	],
+	"synced": false
+}
