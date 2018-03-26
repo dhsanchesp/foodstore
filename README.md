@@ -46,6 +46,20 @@ Execute o comando ```mvn clean install```
 
 Em seguida, execute o comando ```mvn spring-boot:run```
 
+### Angular Client
+
+Abra um terminal e acesse o diretório **foodstore-web**.
+
+Execute os comandos 
+
+```npm install```
+
+```ng serve```
+
+Em seguida, acesse a URL em seu browser: ```http://localhost:4200/foodstore-app```
+
+Está disponíel um serviço de consulta de sanduiches. Basta consultar os sanduiches por código (1 a 4).
+
 ### Endpoints da Aplicação
 
 ```GET```

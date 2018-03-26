@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1>Foodstore App</h1>
+    </div>
+     <div class="panel-body">
+        <div class="col-lg-12">
+          <div class="col-lg-3 form-group">
+            <div class="col-lg-12 form-group">
+              <label>Consulte um Sanduiche</label>
+              <input id="codigoSanduiche" [(ngModel)]='codigoSanduiche' type="text" size="9" maxlength="9" class="form-control"/>
+            </div>
+
+            <div class="col-lg-12 form-group">
+              <input id="btnConsultarSanduiche" value="consultar" 
+                     class="btn btn-primary form-control" type="submit" (click)='ConsultarSanduiche()' />   
+            </div>                        
+          </div>
+          <div class="col-lg-8 text-left">
+              <div *ngIf="sanduiche">
+                <p><strong>{{sanduiche.nomeSanduiche}}</strong></p>
+                <p>{{sanduiche.descricaoSanduiche}}</p>
+                <p>Valor: {{sanduiche.valorSanduiche | currency:'R$ '}}</p>
+              </div>
+              <div *ngIf="!sanduiche">
+                  <strong>Sanduiche não encontrado!</strong>
+              </div>
+            </div>
+      </div>
+     </div>
+     <div class="panel-footer">
+        <p>Sistema para Consulta de Pedidos</p>
+     </div>
+
+  </div>
+</div>
